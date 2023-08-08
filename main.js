@@ -2,13 +2,6 @@ export default class MyPlugin {
   constructor(script, engine) {
     this.script = script;
     this.geniallyEngine = engine;
-
-    this.events = {
-      onLoad: this.onLoad.bind(this),
-      onEnteringSlide: this.onEnteringSlide.bind(this),
-      onEnteredSlide: this.onEnteredSlide.bind(this),
-      onExitingSlide: this.onExitingSlide.bind(this),
-    };
   }
 
   onEnteringSlide() {
@@ -24,6 +17,6 @@ export default class MyPlugin {
   }
 
   onLoad() {
-    
+    console.log('onLoad');
   }
 }

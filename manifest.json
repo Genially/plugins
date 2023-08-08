@@ -1,5 +1,5 @@
 {
-  "scriptId": "@yourdevid/yourpluginname/",
+  "scriptId": "@yourdevid/yourpluginname",
   "main": "main.js",
   "scope": "slide",
   "configSchema": {
@@ -9,13 +9,13 @@
     },
     "fields": [
       {
-        "type": "action",
-        "name": "success",
+        "name": "text",
+        "type": "textInput",
         "label": {
-          "en": "When success occurs"
+          "en": "A text",
+          "es": "Un texto"
         },
-        "defaultValue": null,
-        "canBeNull": true
+        "defaultValue": "Default text"
       }
     ]
   }
