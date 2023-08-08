@@ -1,0 +1,22 @@
+{
+  "scriptId": "@yourdevid/yourpluginname/",
+  "main": "main.js",
+  "scope": "slide",
+  "configSchema": {
+    "title": {
+      "en": "An amazing plugin",
+      "es": "Un plugin increíble"
+    },
+    "fields": [
+      {
+        "type": "action",
+        "name": "success",
+        "label": {
+          "en": "When success occurs"
+        },
+        "defaultValue": null,
+        "canBeNull": true
+      }
+    ]
+  }
+}
