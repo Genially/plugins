@@ -14,7 +14,7 @@ Please follow the instructions to setup a working development environment to cre
 
 ### A Genially account
 
-Sign up for an account on https://genial.ly, finishe the onboarding process and create an empty Genially. You'll come back later.
+Sign up for an account on https://genial.ly, finish the onboarding process and create an empty Genially. You'll come back to it later.
 
 ### Access to the plugin development feature
 In order to develop plugins for Genially, your Genially account needs to be given access to the feature. If you are reading this, you probably already do! If you found this by accident but are interested, try to get in touch with us.
@@ -71,10 +71,10 @@ Click on add script, and paste the URL that came up on the console when you ran 
 
 <screenshot of sidebar>
 
-Now, publish the Genially so you can present it, present it and open the development tools (F12). If everything went fine, you should see a message on the console. That's it!
+Now, publish the Genially, present it and open the development tools (F12). If everything went fine, you should see a message on the console. That's it!
 
 If you want to see some changes, just open the main.js file on your code editor, update the log message, save and reload your Genially (the view page). You should see the new message on the console.
 
 ## Where to go next
 
-Head over to (the wiki on the plugin-docs repo)[https://github.com/Genially/plugins-docs/wiki], where we have some more in-depth documentation about the plugin api.
+Head over to (the wiki on the plugin-docs repo)[https://github.com/Genially/plugins-docs/wiki], where we have some more in-depth documentation about the Plugins api.
