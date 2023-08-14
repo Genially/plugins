@@ -2,7 +2,7 @@
 
 At Genially, we are developing a way to enhance creations using third-party plugins, giving them first-class support.
 
-Using this plugin feature, developers will be able to add new behaviour to Geniallys, create complex escape games, and many more things.
+Using this plugin feature, developers will be able to add new behavior to Geniallys, create complex escape games, and many more things.
 
 # Getting started
 
@@ -79,4 +79,4 @@ If you want to see some changes, just open the main.js file on your code editor,
 
 ## Where to go next
 
-Head over to (the wiki on the plugin-docs repo)[https://github.com/Genially/plugins/wiki], where we have some more in-depth documentation about the Plugins api.
+Head over to [the wiki](https://github.com/Genially/plugins/wiki), where we have some more in-depth documentation about the Plugins API.
