@@ -20,16 +20,18 @@ Sign up for an account on https://genial.ly, finish the onboarding process and c
 In order to develop plugins for Genially, your Genially account needs to be given access to the feature. If you are reading this, you probably already do! If you found this by accident but are interested, try to get in touch with us.
 
 ### Node.js
-This repository is a Node.js package, which will be used for development, so you should install the latest LTS version (18) [Node.js](https://nodejs.org/en/download) on your operating system. We recommend using [nvm](https://github.com/nvm-sh/nvm) on Linux and Mac systems. For Windows, the official packages are fine too.
+This repository contains Node.js packages, which will be used for development, so you should install the latest LTS version (18) [Node.js](https://nodejs.org/en/download) on your computer. We recommend using [nvm](https://github.com/nvm-sh/nvm) on Linux and Mac systems. For Windows, the official packages are fine too.
 
 ### A copy of this repository
-Next, you need to have a copy of this repo on your computer. You can either [download it](https://github.com/Genially/plugin-starter-vanilla/archive/refs/heads/main.zip) and extract it somewhere, or if you know how to use git, create your own fork and clone it on your machine. 
+Next, you need to have a copy of this repo on your computer. You can either [download it](https://github.com/Genially/plugins/archive/refs/heads/main.zip) and extract it somewhere.
+
+For each plugin you develop you will need to make a copy of the subdirectory `starters/vanilla`, but for the tutorial you can use that one.
 
 ### A code editor
 
 (This is not mandatory, but highly recommended.)
 
-At Genially most of us use [Visual Studio Code](https://code.visualstudio.com/), but any development-focused editor (preferrably with a built-in terminal) that supports Javascript will do.
+At Genially most of us use [Visual Studio Code](https://code.visualstudio.com/), but any development-focused editor (preferably with a built-in terminal) that supports Javascript will do.
 
 Open the project's folder on your editor and open the editor's built in terminal. Alternatively, you can open a terminal manually and navigate to the project's folder.
 
@@ -77,4 +79,4 @@ If you want to see some changes, just open the main.js file on your code editor,
 
 ## Where to go next
 
-Head over to (the wiki on the plugin-docs repo)[https://github.com/Genially/plugins-docs/wiki], where we have some more in-depth documentation about the Plugins api.
+Head over to (the wiki on the plugin-docs repo)[https://github.com/Genially/plugins/wiki], where we have some more in-depth documentation about the Plugins api.

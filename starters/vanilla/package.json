@@ -1,11 +1,10 @@
 {
-  "name": "plugin-starter-kit-vanilla",
+  "name": "@genially/plugin-starter-vanilla",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "serve -l 1209 -C",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "serve -l 1209 -C"
   },
   "keywords": [],
   "author": "",
