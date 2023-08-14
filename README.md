@@ -2,7 +2,7 @@
 
 At Genially, we are developing a way to enhance creations using third-party plugins, giving them first-class support.
 
-Using this plugin feature, developers will be able to add new behaviour to Geniallys, create complex escape games, and many more things.
+Using this plugin feature, developers will be able to add new behavior to Geniallys, create complex escape games, and many more things.
 
 # Getting started
 
@@ -20,16 +20,18 @@ Sign up for an account on https://genial.ly, finish the onboarding process and c
 In order to develop plugins for Genially, your Genially account needs to be given access to the feature. If you are reading this, you probably already do! If you found this by accident but are interested, try to get in touch with us.
 
 ### Node.js
-This repository is a Node.js package, which will be used for development, so you should install the latest LTS version (18) [Node.js](https://nodejs.org/en/download) on your operating system. We recommend using [nvm](https://github.com/nvm-sh/nvm) on Linux and Mac systems. For Windows, the official packages are fine too.
+This repository contains Node.js packages, which will be used for development, so you should install the latest LTS version (18) [Node.js](https://nodejs.org/en/download) on your computer. We recommend using [nvm](https://github.com/nvm-sh/nvm) on Linux and Mac systems. For Windows, the official packages are fine too.
 
 ### A copy of this repository
-Next, you need to have a copy of this repo on your computer. You can either [download it](https://github.com/Genially/plugin-starter-vanilla/archive/refs/heads/main.zip) and extract it somewhere, or if you know how to use git, create your own fork and clone it on your machine. 
+Next, you need to have a copy of this repo on your computer. You can either [download it](https://github.com/Genially/plugins/archive/refs/heads/main.zip) and extract it somewhere.
+
+For each plugin you develop you will need to make a copy of the subdirectory `starters/vanilla`, but for the tutorial you can use that one.
 
 ### A code editor
 
 (This is not mandatory, but highly recommended.)
 
-At Genially most of us use [Visual Studio Code](https://code.visualstudio.com/), but any development-focused editor (preferrably with a built-in terminal) that supports Javascript will do.
+At Genially most of us use [Visual Studio Code](https://code.visualstudio.com/), but any development-focused editor (preferably with a built-in terminal) that supports Javascript will do.
 
 Open the project's folder on your editor and open the editor's built in terminal. Alternatively, you can open a terminal manually and navigate to the project's folder.
 
@@ -65,11 +67,11 @@ You need to leave this running for as long as you want to develop the plugin. Th
 
 Open or create some Genially on your account. If you were given access to the plugin development feature, you should see this icon on the top bar:
 
-<screenshot of the top bar dev menu>
+![image](https://github.com/Genially/plugins/assets/446970/aa72fff4-059a-48d3-a710-95a3b6101877)
 
 Click on add script, and paste the URL that came up on the console when you ran the project before. It will probably be: `http://localhost:1209`. Click accept and you should see a sidebar with your currently added extension, awesome!
 
-<screenshot of sidebar>
+![image](https://github.com/Genially/plugins/assets/446970/237a4aad-70ce-4756-a7ef-9b4f97912b22)
 
 Now, publish the Genially, present it and open the development tools (F12). If everything went fine, you should see a message on the console. That's it!
 
@@ -77,4 +79,4 @@ If you want to see some changes, just open the main.js file on your code editor,
 
 ## Where to go next
 
-Head over to (the wiki on the plugin-docs repo)[https://github.com/Genially/plugins-docs/wiki], where we have some more in-depth documentation about the Plugins api.
+Head over to [the wiki](https://github.com/Genially/plugins/wiki), where we have some more in-depth documentation about the Plugins API.
