@@ -67,11 +67,11 @@ You need to leave this running for as long as you want to develop the plugin. Th
 
 Open or create some Genially on your account. If you were given access to the plugin development feature, you should see this icon on the top bar:
 
-<screenshot of the top bar dev menu>
+![image](https://github.com/Genially/plugins/assets/446970/aa72fff4-059a-48d3-a710-95a3b6101877)
 
 Click on add script, and paste the URL that came up on the console when you ran the project before. It will probably be: `http://localhost:1209`. Click accept and you should see a sidebar with your currently added extension, awesome!
 
-<screenshot of sidebar>
+![image](https://github.com/Genially/plugins/assets/446970/237a4aad-70ce-4756-a7ef-9b4f97912b22)
 
 Now, publish the Genially, present it and open the development tools (F12). If everything went fine, you should see a message on the console. That's it!
 
