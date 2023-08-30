@@ -67,11 +67,12 @@ You need to leave this running for as long as you want to develop the plugin. Th
 
 Open or create some Genially on your account. If you were given access to the plugin development feature, you should see this icon on the top bar:
 
-![image](https://github.com/Genially/plugins/assets/446970/aa72fff4-059a-48d3-a710-95a3b6101877)
+![Captura de pantalla 2023-08-30 a las 12 31 46](https://github.com/Genially/plugins/assets/4242216/d07bc495-1da7-425b-ba84-cd0f1ab6d695)
+
 
 Click on add script, and paste the URL that came up on the console when you ran the project before. It will probably be: `http://localhost:1209`. Click accept and you should see a sidebar with your currently added extension, awesome!
 
-![image](https://github.com/Genially/plugins/assets/446970/237a4aad-70ce-4756-a7ef-9b4f97912b22)
+![Captura de pantalla 2023-08-30 a las 12 40 46](https://github.com/Genially/plugins/assets/4242216/14a5b797-580b-4a51-9a2e-a710fdf84bfc)
 
 Now, publish the Genially, present it and open the development tools (F12). If everything went fine, you should see a message on the console. That's it!
 
@@ -80,3 +81,5 @@ If you want to see some changes, just open the main.js file on your code editor,
 ## Where to go next
 
 Head over to [the wiki](https://github.com/Genially/plugins/wiki), where we have some more in-depth documentation about the Plugins API.
+
+You can also see an [example](https://github.com/Genially/plugins/tree/main/examples/vanilla/drag-drop) with a drag&drop script

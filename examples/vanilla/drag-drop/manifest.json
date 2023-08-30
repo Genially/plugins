@@ -1,0 +1,119 @@
+{
+  "scriptId": "@example-genially/drag-drop-example",
+  "main": "main.js",
+  "scope": "slide",
+  "configSchema": {
+    "title": {
+      "en": "Example of script with drag and drop",
+      "es": "Ejemplo de script con drag and drop"
+    },
+    "fields": [
+      {
+        "name": "dropZones",
+        "type": "list",
+        "label": {
+          "en": "Drop zones",
+          "es": "Zonas de drop"
+        },
+        "defaultValue": [],
+        "itemFields": [
+          {
+            "name": "dropZone",
+            "type": "itemRef",
+            "label": {
+              "en": "Destiny item",
+              "es": "Item destino"
+            },
+            "defaultValue": {
+              "$type": "itemRef",
+              "itemId": "5f6f1e0b1d4bb64b02313c6f"
+            },
+            "accept": ["svg", "image"],
+            "canBeNull": false
+          },
+          {
+            "name": "dragItems",
+            "type": "list",
+            "label": {
+              "en": "Items to move",
+              "es": "Items a mover"
+            },
+            "defaultValue": [],
+            "itemFields": [
+              {
+                "name": "dragItem",
+                "type": "itemRef",
+                "label": {
+                  "en": "Select item",
+                  "es": "Selecciona un item"
+                },
+                "defaultValue": {
+                  "$type": "itemRef",
+                  "itemId": "5f6f1e0b1d4bb64b02313a6f"
+                },
+                "accept": ["text", "image", "svg"],
+                "canBeNull": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "okImage",
+        "type": "itemRef",
+        "label": {
+          "en": "Image ok",
+          "es": "Imagen ok"
+        },
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": "5f6f1e0b1d4bb64b02313a6a"
+        },
+        "accept": ["image", "svg"],
+        "canBeNull": false
+      },
+      {
+        "name": "koImage",
+        "type": "itemRef",
+        "label": {
+          "en": "Image ko",
+          "es": "Imagen ko"
+        },
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": "5f6f1e0b1d4bb64b02313a6a"
+        },
+        "accept": ["image", "svg"],
+        "canBeNull": false
+      },
+      {
+        "name": "timeoutImageMessage",
+        "type": "timeInput",
+        "label": {
+          "en": "Timeout messaage",
+          "es": "Timeout del mensaje"
+        },
+        "defaultValue": {
+          "$type": "time",
+          "milliseconds": 3000
+        },
+        "format": "SS",
+        "min": 1000,
+        "max": 10000
+      },
+      {
+        "type": "action",
+        "name": "allIsOk",
+        "label": {
+          "en": "Launch when all is ok",
+          "es": "Lanzar cuando todo este ok"
+        },
+        "canBeNull": true,
+        "defaultValue": {
+          "$type": "action",
+          "action": null
+        }
+      }
+    ]
+  }
+}
