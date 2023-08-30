@@ -45,7 +45,6 @@ export default class MyPlugin {
           ) {
             imageToShow = okImageItem;
             if (allIsOk.action) {
-              console.log({ action: allIsOk.action });
               this.geniallyEngine.addInteractivity(allIsOk.action);
             }
           }
