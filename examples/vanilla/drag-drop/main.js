@@ -1,57 +1,45 @@
-export default class MyPlugin {
-  constructor(script, engine) {
-    this.script = script;
-    this.geniallyEngine = engine;
-  }
+export default function myPlugin(script, geniallyEngine) {
+  const {
+    dropZones: dropsZoneConfig,
+    okImage,
+    koImage,
+    allIsOk,
+  } = script.config;
 
-  showImage(imageItem) {
-    const { timeoutImageMessage } = this.script.config;
+  function showImage(imageItem) {
+    const { timeoutImageMessage } = script.config;
 
-    imageItem.opacity = "1";
+    imageItem.opacity = 1;
 
-    this.geniallyEngine.setTimeout(() => {
-      imageItem.opacity = "0";
+    geniallyEngine.setTimeout(() => {
+      imageItem.opacity = 0;
     }, timeoutImageMessage.milliseconds);
   }
 
-  onEnteringSlide() {
-    const {
-      dropZones: dropsZoneConfig,
-      okImage,
-      koImage,
-      allIsOk,
-    } = this.script.config;
-
-    const okImageItem = this.geniallyEngine.resolveItemRef(okImage);
-    const koImageItem = this.geniallyEngine.resolveItemRef(koImage);
-
-    okImageItem.opacity = "0";
-    koImageItem.opacity = "0";
+  script.slide?.on("entering", () => {
+    okImage.opacity = 0;
+    koImage.opacity = 0;
 
     dropsZoneConfig.forEach(({ dropZone, dragItems }) => {
-      if (!dropZone.itemId) {
-        return;
-      }
-      this.geniallyEngine.addEventListener(
-        dropZone.itemId,
-        "onDrop",
-        (target) => {
-          let imageToShow = koImageItem;
-          if (
-            target &&
-            dragItems
-              .map((item) => item.dragItem.itemId)
-              .includes(target.relatedTargetId)
-          ) {
-            imageToShow = okImageItem;
-            if (allIsOk.action) {
-              this.geniallyEngine.addInteractivity(allIsOk.action);
-            }
-          }
+      dropZone.on("drop", ({ relatedTarget }) => {
+        let imageToShow = koImage;
 
-          this.showImage(imageToShow);
+        console.log({ relatedTarget: relatedTarget.elementId, dragItems });
+        if (
+          relatedTarget &&
+          relatedTarget.elementId &&
+          dragItems
+            .map((item) => item.dragItem.elementId)
+            .includes(relatedTarget.elementId)
+        ) {
+          imageToShow = okImage;
+          if (allIsOk.action) {
+            geniallyEngine.runAction(allIsOk.action);
+          }
         }
-      );
+
+        showImage(imageToShow);
+      });
     });
-  }
+  });
 }
