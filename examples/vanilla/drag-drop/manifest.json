@@ -69,7 +69,7 @@
           "$type": "itemRef",
           "itemId": "5f6f1e0b1d4bb64b02313a6a"
         },
-        "accept": ["image", "svg"],
+        "accept": ["image", "svg", "text"],
         "canBeNull": false
       },
       {
@@ -83,7 +83,7 @@
           "$type": "itemRef",
           "itemId": "5f6f1e0b1d4bb64b02313a6a"
         },
-        "accept": ["image", "svg"],
+        "accept": ["image", "svg", "text"],
         "canBeNull": false
       },
       {
