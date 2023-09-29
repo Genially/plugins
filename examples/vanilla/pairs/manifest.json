@@ -1,0 +1,98 @@
+{
+  "scriptId": "@genially/pairs",
+  "main": "main.js",
+  "scope": "slide",
+  "configSchema": {
+    "title": {
+      "en": "The pairs game",
+      "es": "El juego de las parejas"
+    },
+    "fields": [
+      {
+        "name": "pairs",
+        "type": "list",
+        "label": {
+          "en": "Pairs",
+          "es": "Parejas"
+        },
+        "defaultValue": [],
+        "itemFields": [
+          {
+            "name": "item1Pair",
+            "type": "itemRef",
+            "label": {
+              "en": "Select item",
+              "es": "Selecciona un item"
+            },
+            "defaultValue": {
+              "$type": "itemRef",
+              "itemId": null
+            },
+            "accept": [
+              "text",
+              "image",
+              "svg"
+            ],
+            "canBeNull": false
+          },
+          {
+            "name": "item2Pair",
+            "type": "itemRef",
+            "label": {
+              "en": "Select its pair",
+              "es": "Selecciona su pareja"
+            },
+            "defaultValue": {
+              "$type": "itemRef",
+              "itemId": null
+            },
+            "accept": [
+              "text",
+              "image",
+              "svg"
+            ],
+            "canBeNull": false
+          }
+        ]
+      },
+      {
+        "name": "overlay",
+        "type": "itemRef",
+        "label": {
+          "en": "Item to hide the images. Should be opaque",
+          "es": "Elemento que ocultará las imágenes. Debe ser opaco"
+        },
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": null
+        },
+        "accept": [
+          "image"
+        ],
+        "canBeNull": false
+      },
+      {
+        "type": "switch",
+        "name": "randomize",
+        "label": {
+          "en": "Randomize",
+          "es": "Aleatorio"
+        },
+        "defaultValue": false
+      },
+      {
+        "type": "action",
+        "name": "allIsOk",
+        "label": {
+          "en": "Launch when all pairs are valid",
+          "es": "Lanzar cuando todas las parejas son válidas"
+        },
+        "canBeNull": true,
+        "defaultValue": {
+          "$type": "action",
+          "action": null
+        }
+      }
+    ]
+  }
+}
