@@ -1,31 +1,37 @@
-const TRANSPARENT = 'rgba(0, 0, 0, 0)';
-
 export default function myPlugin(script, geniallyEngine) {
   const {
     clickItems,
     allIsOk
   } = script.config;
 
+  // This should not work under "non-sandboxed" scripts
+  try {
+    document.body.style.backgroundColor = '#fabada';
+  } catch {
+    console.error('Cannot access document');
+  }
+
   script.slide?.on("entering", () => {
-    const colors = {};
+    const initialOpacity = {};
 
     clickItems.forEach((item) => {
       const { clickItem } = item;
 
-      if (clickItem === null) {
+      if (clickItem === null || clickItem === undefined) {
         return;
       }
 
-      colors[clickItem.id] = clickItem.colors;
-      clickItem.colors = [TRANSPARENT];
+      initialOpacity[clickItem.id] = clickItem.opacity;
+      clickItem.opacity = initialOpacity[clickItem.id] * 0.1;
 
       clickItem?.on('click', () => {
-        const [color] = clickItem.colors;
+        const opacity = clickItem.opacity;
 
-        if (color === TRANSPARENT) {
-          clickItem.colors = [colors[clickItem.id]];
+        if (opacity === initialOpacity[clickItem.id] * 0.1) {
+          console.log(initialOpacity[clickItem.id]);
+          clickItem.opacity = initialOpacity[clickItem.id] || 1;
         } else {
-          clickItem.colors = [TRANSPARENT];
+          clickItem.opacity = initialOpacity[clickItem.id] * 0.1;
         }
 
         const success = clickItems.every(({ clickItem, shouldBeChecked }) => {
@@ -33,13 +39,14 @@ export default function myPlugin(script, geniallyEngine) {
             return true;
           }
 
-          const color = clickItem.colors[0];
+          const opacity = clickItem.opacity;
+          const offOpacity = initialOpacity[clickItem.id] * 0.1;
 
-          if (!shouldBeChecked && color === TRANSPARENT) {
+          if (!shouldBeChecked && opacity === offOpacity) {
             return true;
           }
 
-          if (shouldBeChecked && color !== TRANSPARENT) {
+          if (shouldBeChecked && opacity !== offOpacity) {
             return true;
           }
 
