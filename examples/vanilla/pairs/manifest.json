@@ -1,5 +1,5 @@
 {
-  "scriptId": "@genially/pairs",
+  "scriptId": "@rteran.genially/pairs",
   "main": "main.js",
   "scope": "slide",
   "configSchema": {
