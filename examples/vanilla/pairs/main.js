@@ -1,4 +1,4 @@
-const animationDuration = 1000;
+const showTime = 500;
 
 const getRandomItemFromList = (list) =>
   list[Math.floor(Math.random() * list.length)];
@@ -41,35 +41,12 @@ export default function myPlugin(script, geniallyEngine) {
     }))
   );
 
-  const wrongAnimation = (item) => {
-    const animation = item.playAnimation({
-      type: "continuous_heartbeat",
-      parameters: { delayMs: 0, durationMs: animationDuration },
-    });
-
-    geniallyEngine.setTimeout(() => {
-      animation.stop();
-    }, animationDuration);
-  };
-
-  const successAnimation = (item) => {
-    const animation = item.playAnimation({
-      type: "exit_freeze_zoomOut",
-      parameters: { delayMs: 0, durationMs: animationDuration },
-    });
-
-    geniallyEngine.setTimeout(() => {
-      animation.stop();
-    }, animationDuration);
-  };
-
   const resetItem = (item) => {
     lastIdClicked = undefined;
-    wrongAnimation(item);
 
     geniallyEngine.setTimeout(() => {
       item.source = overlay.source;
-    }, animationDuration);
+    }, showTime);
   };
 
   const showItem = (item) => {
@@ -78,12 +55,12 @@ export default function myPlugin(script, geniallyEngine) {
 
   const selectItem = (item) => {
     showItem(item);
-    lastIdClicked = item.refferenceId;
+    lastIdClicked = item.referenceId;
   };
 
   const failPair = (item) => {
     const lastItemClicked = allItems.find(
-      (item) => item.refferenceId === lastIdClicked
+      (item) => item.referenceId === lastIdClicked
     );
 
     [item, lastItemClicked].forEach((item) => {
@@ -94,7 +71,7 @@ export default function myPlugin(script, geniallyEngine) {
 
   const successPair = (item) => {
     const pairItem = allItems.find(
-      (i) => i.refferenceId === pairsRelations.get(item.refferenceId)
+      (i) => i.referenceId === pairsRelations.get(item.referenceId)
     );
 
     const items = [item, pairItem];
@@ -108,15 +85,9 @@ export default function myPlugin(script, geniallyEngine) {
 
     geniallyEngine.setTimeout(() => {
       items.forEach((item) => {
-        successAnimation(item);
+        item.shown = false;
       });
-
-      geniallyEngine.setTimeout(() => {
-        items.forEach((item) => {
-          item.shown = false;
-        });
-      }, animationDuration);
-    }, animationDuration);
+    }, showTime);
   };
 
   const checkPair = (currentItem) => {
@@ -126,9 +97,9 @@ export default function myPlugin(script, geniallyEngine) {
 
     if (!lastIdClicked) {
       selectItem(currentItem);
-    } else if (lastIdClicked === currentItem.refferenceId) {
+    } else if (lastIdClicked === currentItem.referenceId) {
       resetItem(currentItem);
-    } else if (lastIdClicked === pairsRelations.get(currentItem.refferenceId)) {
+    } else if (lastIdClicked === pairsRelations.get(currentItem.referenceId)) {
       successPair(currentItem);
     } else {
       failPair(currentItem);
@@ -137,7 +108,7 @@ export default function myPlugin(script, geniallyEngine) {
     if (successPairs.length === pairs.length && allIsOk.action) {
       geniallyEngine.setTimeout(() => {
         geniallyEngine.runAction(allIsOk.action);
-      }, animationDuration * 2);
+      }, showTime);
     }
   };
 
@@ -147,7 +118,7 @@ export default function myPlugin(script, geniallyEngine) {
     allItems.forEach((item) => {
       const randomPair = randomizedPairs.get(item.id);
       item.itemSource = randomize ? randomPair?.source : item.source;
-      item.refferenceId = randomize ? randomPair?.id : item.id;
+      item.referenceId = randomize ? randomPair?.id : item.id;
       item.source = overlay.source;
     });
   };
