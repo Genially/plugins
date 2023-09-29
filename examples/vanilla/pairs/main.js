@@ -34,12 +34,14 @@ export default function myPlugin(script, geniallyEngine) {
     item1Pair,
     item2Pair,
   ]);
-  const randomizedPairs = getRandomizedPairs(
-    allItems.map((v) => ({
-      ...v,
-      source: v.source,
-    }))
-  );
+  const randomizedPairs = randomize
+    ? getRandomizedPairs(
+        allItems.map((v) => ({
+          ...v,
+          source: v.source,
+        }))
+      )
+    : undefined;
 
   const resetItem = (item) => {
     lastIdClicked = undefined;
@@ -116,9 +118,12 @@ export default function myPlugin(script, geniallyEngine) {
     overlay.shown = false;
 
     allItems.forEach((item) => {
-      const randomPair = randomizedPairs.get(item.id);
-      item.itemSource = randomize ? randomPair?.source : item.source;
-      item.referenceId = randomize ? randomPair?.id : item.id;
+      item.itemSource = randomize
+        ? randomizedPairs?.get(item.id)?.source
+        : item.source;
+      item.referenceId = randomize
+        ? randomizedPairs?.get(item.id)?.id
+        : item.id;
       item.source = overlay.source;
     });
   };
