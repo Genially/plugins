@@ -28,6 +28,7 @@ export default function myPlugin(script, geniallyEngine) {
   const { pairs, overlay, randomize, allIsOk } = script.config;
 
   let lastIdClicked = undefined;
+  let animating = false;
   const successPairs = [];
   const pairsRelations = new Map();
   const allItems = pairs.flatMap(({ item1Pair, item2Pair }) => [
@@ -72,6 +73,10 @@ export default function myPlugin(script, geniallyEngine) {
   };
 
   const successPair = (item) => {
+    if (animating) {
+      return;
+    }
+
     const pairItem = allItems.find(
       (i) => i.referenceId === pairsRelations.get(item.referenceId)
     );
@@ -85,10 +90,13 @@ export default function myPlugin(script, geniallyEngine) {
       showItem(item);
     });
 
+    animating = true;
+
     geniallyEngine.setTimeout(() => {
       items.forEach((item) => {
         item.shown = false;
       });
+      animating = false;
     }, showTime);
   };
 
