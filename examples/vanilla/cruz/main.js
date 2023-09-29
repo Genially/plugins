@@ -4,13 +4,6 @@ export default function myPlugin(script, geniallyEngine) {
     allIsOk
   } = script.config;
 
-  // This should not work under "non-sandboxed" scripts
-  try {
-    document.body.style.backgroundColor = '#fabada';
-  } catch {
-    console.error('Cannot access document');
-  }
-
   script.slide?.on("entering", () => {
     const initialOpacity = {};
 
