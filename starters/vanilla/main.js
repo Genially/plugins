@@ -1,4 +1,4 @@
-export default function myPlugin(script, geniallyEngine) {
+export default function myPlugin(script, view) {
   script.slide.on("entering", () => {
     console.log("entering slide");
   });

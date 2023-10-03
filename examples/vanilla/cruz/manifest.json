@@ -4,8 +4,8 @@
   "scope": "slide",
   "configSchema": {
     "title": {
-      "en": "Example of script with click events",
-      "es": "Ejemplo de script con click events"
+      "en": "Cruz",
+      "es": "Cruz"
     },
     "fields": [
       {
@@ -58,6 +58,16 @@
           "$type": "action",
           "action": null
         }
+      },
+      {
+        "type": "switch",
+        "name": "enableClickSounds",
+        "label": {
+          "en": "Enable clicking sound",
+          "es": "Habilitar sonidos de click"
+        },
+        "canBeNull": false,
+        "defaultValue": false
       }
     ]
   }
