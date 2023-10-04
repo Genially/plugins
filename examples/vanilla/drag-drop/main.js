@@ -1,4 +1,4 @@
-export default function myPlugin(script, geniallyEngine) {
+export default function myPlugin(script, view) {
   const {
     dropZones: dropsZoneConfig,
     okImage,
@@ -11,7 +11,7 @@ export default function myPlugin(script, geniallyEngine) {
 
     imageItem.opacity = 1;
 
-    geniallyEngine.setTimeout(() => {
+    view.setTimeout(() => {
       imageItem.opacity = 0;
     }, timeoutImageMessage.milliseconds);
   }
@@ -34,7 +34,7 @@ export default function myPlugin(script, geniallyEngine) {
         ) {
           imageToShow = okImage;
           if (allIsOk.action) {
-            geniallyEngine.runAction(allIsOk.action);
+            view.runAction(allIsOk.action);
           }
         }
 

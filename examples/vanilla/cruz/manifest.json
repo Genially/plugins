@@ -1,0 +1,74 @@
+{
+  "scriptId": "@scape/cruz-example",
+  "main": "main.js",
+  "scope": "slide",
+  "configSchema": {
+    "title": {
+      "en": "Cruz",
+      "es": "Cruz"
+    },
+    "fields": [
+      {
+        "name": "clickItems",
+        "type": "list",
+        "label": {
+          "en": "Click items",
+          "es": "Items de click"
+        },
+        "defaultValue": [],
+        "itemFields": [
+          {
+            "name": "clickItem",
+            "type": "itemRef",
+            "label": {
+              "en": "Clickable item",
+              "es": "Elemento clickable"
+            },
+            "defaultValue": {
+              "$type": "itemRef",
+              "itemId": "wadus"
+            },
+            "accept": [
+              "svg",
+              "image"
+            ],
+            "canBeNull": true
+          },
+          {
+            "name": "shouldBeChecked",
+            "type": "switch",
+            "label": {
+              "en": "Should be checked?",
+              "es": "Debería estar marcado?"
+            },
+            "defaultValue": false,
+            "canBeNull": false
+          }
+        ]
+      },
+      {
+        "type": "action",
+        "name": "allIsOk",
+        "label": {
+          "en": "When all is correct",
+          "es": "Cuando todo esté correcto"
+        },
+        "canBeNull": true,
+        "defaultValue": {
+          "$type": "action",
+          "action": null
+        }
+      },
+      {
+        "type": "switch",
+        "name": "enableClickSounds",
+        "label": {
+          "en": "Enable clicking sound",
+          "es": "Habilitar sonidos de click"
+        },
+        "canBeNull": false,
+        "defaultValue": false
+      }
+    ]
+  }
+}

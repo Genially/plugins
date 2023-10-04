@@ -24,7 +24,7 @@ const getRandomizedPairs = (allItems) => {
   return randomPairs;
 };
 
-export default function myPlugin(script, geniallyEngine) {
+export default function myPlugin(script, view) {
   const { pairs, overlay, randomize, allIsOk } = script.config;
 
   let lastIdClicked = undefined;
@@ -47,7 +47,7 @@ export default function myPlugin(script, geniallyEngine) {
   const resetItem = (item) => {
     lastIdClicked = undefined;
 
-    geniallyEngine.setTimeout(() => {
+    view.setTimeout(() => {
       item.source = overlay.source;
     }, showTime);
   };
@@ -92,7 +92,7 @@ export default function myPlugin(script, geniallyEngine) {
 
     animating = true;
 
-    geniallyEngine.setTimeout(() => {
+    view.setTimeout(() => {
       items.forEach((item) => {
         item.shown = false;
       });
@@ -116,8 +116,8 @@ export default function myPlugin(script, geniallyEngine) {
     }
 
     if (successPairs.length === pairs.length && allIsOk.action) {
-      geniallyEngine.setTimeout(() => {
-        geniallyEngine.runAction(allIsOk.action);
+      view.setTimeout(() => {
+        view.runAction(allIsOk.action);
       }, showTime);
     }
   };
