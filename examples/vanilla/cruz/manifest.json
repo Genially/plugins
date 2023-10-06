@@ -1,5 +1,5 @@
 {
-  "scriptId": "@scape/cruz-example",
+  "scriptId": "@roman.genially/cruz-example",
   "main": "main.js",
   "scope": "slide",
   "configSchema": {
