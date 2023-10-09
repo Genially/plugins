@@ -1,6 +1,7 @@
 {
   "scriptId": "@roman.genially/cruz-example",
   "main": "main.js",
+  "version": "1.0.0",
   "scope": "slide",
   "configSchema": {
     "title": {

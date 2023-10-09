@@ -1,6 +1,7 @@
 {
   "scriptId": "@yourdevid/yourpluginname",
   "main": "main.js",
+  "version": "0.0.1",
   "scope": "slide",
   "configSchema": {
     "title": {
