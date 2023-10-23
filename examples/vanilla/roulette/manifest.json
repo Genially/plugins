@@ -1,0 +1,113 @@
+{
+  "scriptId": "@amador.genially/roulette",
+  "main": "main.js",
+  "scope": "slide",
+  "version": "1.0.0",
+  "configSchema": {
+    "title": {
+      "en": "The game of roulette",
+      "es": "El juego de la ruleta"
+    },
+    "fields": [
+      {
+        "name": "options",
+        "type": "list",
+        "label": {
+          "en": "Options",
+          "es": "Opciones"
+        },
+        "defaultValue": [],
+        "itemFields": [
+          {
+            "name": "option",
+            "type": "textInput",
+            "label": {
+              "en": "Roulette option",
+              "es": "Opción de la ruleta"
+            },
+            "defaultValue": ""
+          }
+        ]
+      },
+      {
+        "name": "iframe",
+        "type": "itemRef",
+        "label": { "en": "Roulette", "es": "Ruleta" },
+        "accept": ["rich-content"],
+        "canCreate": true,
+        "canBeNull": true,
+        "defaultItems": [
+          {
+            "$type": "rich-content",
+            "label": { "en": "Destiny item", "es": "Item destino" },
+            "value": {
+              "Size": { "Width": "600px", "Height": "500px" },
+              "iframeData": {
+                "scriptId": "@amador.genially/roulette"
+              },
+              "specialContentType": "iframe"
+            }
+          }
+        ],
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": "8fd32d03-8219-4db1-99bb-830f2ccd57fb"
+        }
+      },
+      {
+        "name": "finishText",
+        "type": "itemRef",
+        "label": {
+          "en": "Text to show the option that has been selected.",
+          "es": "Texto para mostrar la opción que ha sido seleccionada"
+        },
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": null
+        },
+        "accept": ["text"],
+        "canBeNull": false
+      },
+      {
+        "name": "spinButton",
+        "type": "itemRef",
+        "label": {
+          "en": "Button to launch roulette",
+          "es": "Botón para lanzar la ruleta"
+        },
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": null
+        },
+        "accept": ["image", "svg"],
+        "canBeNull": false
+      },
+      {
+        "type": "action",
+        "name": "isStarted",
+        "label": {
+          "en": "Launch when the roulette has started",
+          "es": "Iniciar cuando la ruleta ha comenzado"
+        },
+        "canBeNull": true,
+        "defaultValue": {
+          "$type": "action",
+          "action": null
+        }
+      },
+      {
+        "type": "action",
+        "name": "isFinished",
+        "label": {
+          "en": "Launch when roulette has finished",
+          "es": "Iniciar cuando la ruleta haya terminado"
+        },
+        "canBeNull": true,
+        "defaultValue": {
+          "$type": "action",
+          "action": null
+        }
+      }
+    ]
+  }
+}
