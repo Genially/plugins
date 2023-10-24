@@ -11,19 +11,18 @@
   </body>
   <script>
     let iframeOrigin = undefined;
-    var options = ["nuevo", "otro"];
+    let options = ["nuevo", "otro"];
 
-    var startAngle = 0;
-    var spinTimeout = null;
+    let startAngle = 0;
+    let spinTimeout = null;
 
-    var spinArcStart = 10;
-    var spinTime = 0;
-    var spinTimeTotal = 0;
+    let spinTime = 0;
+    let spinTimeTotal = 0;
 
-    var ctx;
+    let ctx;
 
     function byte2Hex(n) {
-      var nybHexString = "0123456789ABCDEF";
+      const nybHexString = "0123456789ABCDEF";
       return (
         String(nybHexString.substr((n >> 4) & 0x0f, 1)) +
         nybHexString.substr(n & 0x0f, 1)
@@ -35,10 +34,10 @@
     }
 
     function getColor(item, maxitem) {
-      var phase = 0;
-      var center = 128;
-      var width = 127;
-      var frequency = (Math.PI * 2) / maxitem;
+      const phase = 0;
+      const center = 128;
+      const width = 127;
+      const frequency = (Math.PI * 2) / maxitem;
 
       red = Math.sin(frequency * item + 2 + phase) * width + center;
       green = Math.sin(frequency * item + 0 + phase) * width + center;
@@ -48,12 +47,12 @@
     }
 
     function drawRouletteWheel() {
-      var canvas = document.getElementById("canvas");
+      const canvas = document.getElementById("canvas");
       if (canvas.getContext) {
-        var arc = Math.PI / (options.length / 2);
-        var outsideRadius = 200;
-        var textRadius = 160;
-        var insideRadius = 125;
+        const arc = Math.PI / (options.length / 2);
+        const outsideRadius = 200;
+        const textRadius = 160;
+        const insideRadius = 125;
 
         ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, 500, 500);
@@ -63,8 +62,8 @@
 
         ctx.font = "bold 12px Helvetica, Arial";
 
-        for (var i = 0; i < options.length; i++) {
-          var angle = startAngle + i * arc;
+        for (let i = 0; i < options.length; i++) {
+          const angle = startAngle + i * arc;
           //ctx.fillStyle = colors[i];
           ctx.fillStyle = getColor(i, options.length);
 
@@ -85,7 +84,7 @@
             250 + Math.sin(angle + arc / 2) * textRadius
           );
           ctx.rotate(angle + arc / 2 + Math.PI / 2);
-          var text = options[i];
+          const text = options[i];
           ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
           ctx.restore();
         }
@@ -118,7 +117,7 @@
         stopRotateWheel();
         return;
       }
-      var spinAngle =
+      const spinAngle =
         spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
       startAngle += (spinAngle * Math.PI) / 180;
       drawRouletteWheel();
@@ -126,14 +125,14 @@
     }
 
     function stopRotateWheel() {
-      var arc = Math.PI / (options.length / 2);
+      const arc = Math.PI / (options.length / 2);
       clearTimeout(spinTimeout);
-      var degrees = (startAngle * 180) / Math.PI + 90;
-      var arcd = (arc * 180) / Math.PI;
-      var index = Math.floor((360 - (degrees % 360)) / arcd);
+      const degrees = (startAngle * 180) / Math.PI + 90;
+      const arcd = (arc * 180) / Math.PI;
+      const index = Math.floor((360 - (degrees % 360)) / arcd);
       ctx.save();
       ctx.font = "bold 30px Helvetica, Arial";
-      var text = options[index];
+      const text = options[index];
 
       iframeOrigin.postMessage({ type: "finish", data: text }, "*");
       ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
@@ -141,12 +140,10 @@
     }
 
     function easeOut(t, b, c, d) {
-      var ts = (t /= d) * t;
-      var tc = ts * t;
+      const ts = (t /= d) * t;
+      const tc = ts * t;
       return b + c * (tc + -3 * ts + 3 * t);
     }
-
-    // drawRouletteWheel();
 
     window.addEventListener("message", (event) => {
       iframeOrigin = event.source;
