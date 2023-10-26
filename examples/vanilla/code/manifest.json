@@ -1,0 +1,92 @@
+{
+  "scriptId": "@amador.genially/code",
+  "main": "main.js",
+  "scope": "slide",
+  "version": "1.0.0",
+  "configSchema": {
+    "title": {
+      "en": "Verifacate code",
+      "es": "Verificación de códigos"
+    },
+    "fields": [
+      {
+        "name": "inputCode",
+        "type": "itemRef",
+        "label": { "en": "test input", "es": "test input" },
+        "accept": ["rich-content"],
+        "canCreate": true,
+        "canBeNull": true,
+        "defaultItems": [
+          {
+            "$type": "rich-content",
+            "label": { "en": "Destiny item", "es": "Item destino" },
+            "value": {
+              "Size": { "Width": "200px", "Height": "40px" },
+              "inputData": {
+                "inputType": "text"
+              },
+              "specialContentType": "input"
+            }
+          }
+        ],
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": "8fd32d03-8219-4db1-99bb-830f2ccd57fb"
+        }
+      },
+      {
+        "name": "code",
+        "type": "textInput",
+        "label": {
+          "en": "Code for validete",
+          "es": "Codigo para validar"
+        },
+        "defaultValue": ""
+      },
+      {
+        "name": "validateButton",
+        "type": "itemRef",
+        "label": {
+          "en": "Validate button",
+          "es": "Button for validate"
+        },
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": null
+        },
+        "accept": ["image", "svg", "group"],
+        "canBeNull": false
+      },
+      {
+        "type": "itemRef",
+        "name": "isKO",
+        "accept": ["image", "svg", "text"],
+        "label": {
+          "en": "Show when the code is wrong",
+          "es": "Se muestra cuando el código es incorrecto"
+        },
+        "canBeNull": true,
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": null
+        },
+        "canCreate": false
+      },
+      {
+        "type": "itemRef",
+        "name": "isOK",
+        "accept": ["image", "svg", "text"],
+        "label": {
+          "en": "Show when the code is correct",
+          "es": "Se muestra cuando el código es correcto"
+        },
+        "canBeNull": true,
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": null
+        },
+        "canCreate": true
+      }
+    ]
+  }
+}
