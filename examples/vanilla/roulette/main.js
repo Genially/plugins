@@ -2,13 +2,15 @@ export default function myPlugin(script, view) {
   const { finishText, options, iframe, isFinished, spinButton, isStarted } =
     script.config;
 
-  view.setTimeout(() => {
+  script.slide.on("entered", () => {
+    // it's good practice send message when slide has entered
     iframe.postMessage({
       type: "options",
       data: options.map((o) => o.option),
     });
+
     iframe.postMessage({ type: "draw" });
-  }, 1300);
+  });
 
   spinButton.on("click", () => {
     iframe.postMessage({
