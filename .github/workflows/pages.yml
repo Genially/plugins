@@ -42,7 +42,8 @@ jobs:
         working-directory: ./docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-        working-directory: ./docs
+        with:
+          working-directory: ./docs
 
   # Deployment job
   deploy:
