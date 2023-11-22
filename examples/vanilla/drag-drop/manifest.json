@@ -1,5 +1,5 @@
 {
-  "scriptId": "@example-genially/drag-drop-example",
+  "scriptId": "@amador.genially/drag-drop-example",
   "main": "main.js",
   "version": "0.0.1",
   "scope": "slide",
@@ -29,10 +29,7 @@
               "$type": "itemRef",
               "itemId": "5f6f1e0b1d4bb64b02313c6f"
             },
-            "accept": [
-              "svg",
-              "image"
-            ],
+            "accept": ["svg", "image"],
             "canBeNull": false
           },
           {
@@ -55,11 +52,7 @@
                   "$type": "itemRef",
                   "itemId": "5f6f1e0b1d4bb64b02313a6f"
                 },
-                "accept": [
-                  "text",
-                  "image",
-                  "svg"
-                ],
+                "accept": ["text", "image", "svg"],
                 "canBeNull": false
               }
             ]
@@ -77,11 +70,7 @@
           "$type": "itemRef",
           "itemId": "5f6f1e0b1d4bb64b02313a6a"
         },
-        "accept": [
-          "image",
-          "svg",
-          "text"
-        ],
+        "accept": ["image", "svg", "text"],
         "canBeNull": false
       },
       {
@@ -95,11 +84,7 @@
           "$type": "itemRef",
           "itemId": "5f6f1e0b1d4bb64b02313a6a"
         },
-        "accept": [
-          "image",
-          "svg",
-          "text"
-        ],
+        "accept": ["image", "svg", "text"],
         "canBeNull": false
       },
       {

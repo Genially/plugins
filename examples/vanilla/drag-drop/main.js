@@ -16,30 +16,37 @@ export default function myPlugin(script, view) {
     }, timeoutImageMessage.milliseconds);
   }
 
+  let removeEventsFn = [];
+
   script.slide?.on("entering", () => {
     okImage.opacity = 0;
     koImage.opacity = 0;
 
     dropsZoneConfig.forEach(({ dropZone, dragItems }) => {
-      dropZone.on("drop", ({ relatedTarget }) => {
-        let imageToShow = koImage;
+      removeEventsFn.push(
+        dropZone.on("drop", ({ relatedTarget }) => {
+          let imageToShow = koImage;
 
-        console.log({ relatedTarget: relatedTarget.elementId, dragItems });
-        if (
-          relatedTarget &&
-          relatedTarget.elementId &&
-          dragItems
-            .map((item) => item.dragItem.elementId)
-            .includes(relatedTarget.elementId)
-        ) {
-          imageToShow = okImage;
-          if (allIsOk.action) {
-            view.runAction(allIsOk.action);
+          if (
+            relatedTarget &&
+            relatedTarget.elementId &&
+            dragItems
+              .map((item) => item.dragItem.elementId)
+              .includes(relatedTarget.elementId)
+          ) {
+            imageToShow = okImage;
+            if (allIsOk) {
+              allIsOk.run();
+            }
           }
-        }
 
-        showImage(imageToShow);
-      });
+          showImage(imageToShow);
+        })
+      );
     });
+  });
+
+  script.slide?.on("exiting", () => {
+    removeEventsFn.forEach((removeEvent) => removeEvent());
   });
 }
