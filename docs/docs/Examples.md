@@ -10,6 +10,7 @@ nav_order: 3
 - [Iframe element example](https://github.com/Genially/plugins/tree/main/examples/vanilla/roulette){:target="\_blank"}
 - [Drag&Drop example](https://github.com/Genially/plugins/tree/main/examples/vanilla/drag-drop){:target="\_blank"}
 - [Cruz extension](https://github.com/Genially/plugins/tree/main/examples/vanilla/cruz){:target="\_blank"}
+- [Pokemon Api](https://github.com/Genially/plugins/tree/main/examples/vanilla/pokemon-api){:target="\_blank"}
 
 # Lifecycle methods
 
