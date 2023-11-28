@@ -1,0 +1,92 @@
+{
+  "scriptId": "@amador.genially/pokemon-api",
+  "main": "main.js",
+  "scope": "slide",
+  "version": "1.0.0",
+  "configSchema": {
+    "title": {
+      "en": "PoKemon API",
+      "es": "Pokemon API"
+    },
+    "fields": [
+      {
+        "name": "iframe",
+        "type": "itemRef",
+        "label": { "en": "PoKemon API", "es": "Pokemon API" },
+        "accept": ["rich-content"],
+        "canCreate": true,
+        "canBeNull": true,
+        "defaultItems": [
+          {
+            "$type": "rich-content",
+            "label": { "en": "Destiny item", "es": "Item destino" },
+            "value": {
+              "Size": { "Width": "600px", "Height": "500px" },
+              "iframeData": {
+                "scriptId": "@amador.genially/pokemon-api"
+              },
+              "specialContentType": "iframe"
+            }
+          }
+        ],
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": "8fd32d03-8219-4db1-99bb-830f2ccd57fb"
+        }
+      },
+      {
+        "name": "inputName",
+        "type": "itemRef",
+        "label": { "en": "Pokemon name", "es": "Nombre del pokemon" },
+        "accept": ["rich-content"],
+        "canCreate": true,
+        "canBeNull": true,
+        "defaultItems": [
+          {
+            "$type": "rich-content",
+            "label": { "en": "Pokemon name", "es": "Nombre del pokemon" },
+            "value": {
+              "Size": { "Width": "200px", "Height": "40px" },
+              "inputData": {
+                "inputType": "text"
+              },
+              "specialContentType": "input"
+            }
+          }
+        ],
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": "8fd32d03-8219-4db1-99bb-830f2ccd57fb"
+        }
+      },
+      {
+        "name": "pokemonImage",
+        "type": "itemRef",
+        "label": {
+          "en": "Image to show the pokemon",
+          "es": "Imagen para mostrar el pokemon"
+        },
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": null
+        },
+        "accept": ["image"],
+        "canBeNull": false
+      },
+      {
+        "name": "searchButton",
+        "type": "itemRef",
+        "label": {
+          "en": "Button to search",
+          "es": "Boton para buscar"
+        },
+        "defaultValue": {
+          "$type": "itemRef",
+          "itemId": null
+        },
+        "accept": ["image", "svg"],
+        "canBeNull": false
+      }
+    ]
+  }
+}

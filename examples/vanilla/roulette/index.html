@@ -161,6 +161,12 @@
           options = data;
           break;
         }
+        case "editor": {
+          console.log("message editor");
+          options = data.options.map((option) => option.option);
+          drawRouletteWheel();
+          break;
+        }
         default:
           console.error("invalid message type");
       }
