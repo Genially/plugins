@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Api</title>
+  </head>
+  <body>
+    <div id="onlyEditor" style="display: none; font-size: 20px">
+      <div id="inputName">Input: <span style="display: none">✅</span></div>
+      <div id="pokemonImage">Image: <span style="display: none">✅</span></div>
+      <div id="searchButton">
+        Search button: <span style="display: none">✅</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    let iframeOrigin = null;
+
+    function handleEditorMessage(data) {
+      const parent = document.getElementById("onlyEditor");
+
+      function toogleOkIcon(tag) {
+        const element = document.getElementById(tag);
+        if (data[tag]?.itemId) {
+          element.getElementsByTagName("span")[0].style.display =
+            "inline-block";
+        } else {
+          element.getElementsByTagName("span")[0].style.display = "none";
+        }
+      }
+
+      parent.style.display = "flex";
+      parent.style.flexDirection = "column";
+
+      toogleOkIcon("inputName");
+      toogleOkIcon("pokemonImage");
+      toogleOkIcon("searchButton");
+    }
+
+    function fetchPokemon(name) {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        .then((response) => {
+          if (response.status === 404) {
+            iframeOrigin.postMessage(
+              {
+                type: "notFound",
+              },
+              "*"
+            );
+            return;
+          }
+
+          response.json().then((body) => {
+            iframeOrigin.postMessage(
+              {
+                type: "pokemonResult",
+                data: body,
+              },
+              "*"
+            );
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    window.addEventListener("message", (event) => {
+      iframeOrigin = event.source;
+      const { data, type } = event.data;
+      switch (type) {
+        case "editor": {
+          handleEditorMessage(data);
+          break;
+        }
+        case "pokemon": {
+          fetchPokemon(data.name);
+          break;
+        }
+        default: {
+          console.error(`invalid message type: ${type}`);
+        }
+      }
+    });
+  </script>
+</html>
