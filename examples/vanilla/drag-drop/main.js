@@ -33,8 +33,8 @@ export default function myPlugin(script, view) {
             .includes(relatedTarget.elementId)
         ) {
           imageToShow = okImage;
-          if (allIsOk.action) {
-            view.runAction(allIsOk.action);
+          if (allIsOk) {
+            allIsOk.run()
           }
         }
 

@@ -62,8 +62,8 @@ export default function myPlugin(script, view) {
           return false;
         });
 
-        if (success && allIsOk.action) {
-          view.runAction(allIsOk.action);
+        if (success && allIsOk) {
+          allIsOk.run();
           succeeded = true;
         }
       })

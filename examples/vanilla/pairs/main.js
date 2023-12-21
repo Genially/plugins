@@ -117,7 +117,7 @@ export default function myPlugin(script, view) {
 
     if (successPairs.length === pairs.length && allIsOk.action) {
       view.setTimeout(() => {
-        view.runAction(allIsOk.action);
+        allIsOk.run();
       }, showTime);
     }
   };
